@@ -5,7 +5,7 @@ const error = document.querySelector("#error");
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
   error.textContent = "";
-  const amount = form.elements.amount.value;
+  const amount = Number(form.elements.amount.value);
   const taxRate = Number(form.elements.taxRate.value) / 100;
 
   try {

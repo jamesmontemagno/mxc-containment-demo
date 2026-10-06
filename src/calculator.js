@@ -1,4 +1,4 @@
 export function calculateTotal(amount, taxRate) {
-  // Intentionally returns only the tax portion so the demo starts with a failing bug report.
+  // Intentionally returns the raw tax value instead of the total to seed the demo bug report.
   return amount * taxRate;
 }
