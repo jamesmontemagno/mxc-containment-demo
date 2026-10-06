@@ -1,0 +1,4 @@
+FAKE DEMO DATA ONLY — no real payment credentials.
+customer,card_number,expiry,cvc
+Example Customer,0000-0000-0000-0000,00/00,000
+Sample User,1111-1111-1111-1111,11/11,111
