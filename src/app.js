@@ -10,10 +10,11 @@ form.addEventListener("submit", async (event) => {
 
   try {
     const response = await fetch(`/api/total?amount=${encodeURIComponent(amount)}&taxRate=${encodeURIComponent(taxRate)}`);
-    const result = await response.json();
     if (!response.ok) {
-      throw new Error(result.error);
+      const problem = await response.json().catch(() => null);
+      throw new Error(problem?.error || `Request failed (${response.status}).`);
     }
+    const result = await response.json();
     total.value = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(result.total);
   } catch (problem) {
     error.textContent = problem.message || "Unable to calculate the total.";
