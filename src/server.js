@@ -9,7 +9,7 @@ const contentTypes = {
 };
 
 const server = createServer(async (request, response) => {
-  const url = new URL(request.url, "http://localhost");
+  const url = new URL(request.url, "http://request.local");
 
   if (url.pathname === "/api/total") {
     const amount = Number(url.searchParams.get("amount"));

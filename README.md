@@ -15,6 +15,8 @@ Open the URL printed by `npm start` (normally <http://localhost:4173>). The test
 
 The server binds to `127.0.0.1` by default. Set `HOST=0.0.0.0` when you need to reach it from outside its container.
 
+The UI accepts a tax percentage (for example, `20` for 20%) and converts it to a decimal rate before calling the API (`0.2`).
+
 ## Containment scenario
 
 The app source and tests are suitable for the approved project workspace. `demo-assets/` contains only fabricated, nonfunctional placeholders for the denied-file portion of the demo. Configure the containment policy to allow the project source and approved build/test commands while explicitly denying `demo-assets/`, personal folders, and unapproved network destinations. The demo assets are in the repository only so the scenario is self-contained; repository access alone does not provide a subdirectory-level deny boundary.
