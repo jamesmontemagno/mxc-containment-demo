@@ -1,9 +1,7 @@
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
 import { calculateTotal } from "./calculator.js";
 
-const root = fileURLToPath(new URL("./", import.meta.url));
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
   ".html": "text/html; charset=utf-8",
@@ -35,7 +33,7 @@ const server = createServer(async (request, response) => {
 
   try {
     const extension = path.slice(path.lastIndexOf("."));
-    const body = await readFile(new URL(`.${path}`, `file://${root}`));
+    const body = await readFile(new URL(`.${path}`, import.meta.url));
     response.writeHead(200, { "content-type": contentTypes[extension] });
     response.end(body);
   } catch {
